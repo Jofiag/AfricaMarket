@@ -7,4 +7,7 @@
     <string name="password_text">Mot de passe</string>
     <string name="password_forgotten_text">Mot de passe oublié?</string>
     <string name="Not_member_text">Pas encore membre?</string>
+    <string name="start_like_text">COMMENCER EN TANT QUE :</string>
+    <string name="admin_text">ADMINISTRATEUR</string>
+    <string name="cleint_text">CLEINT</string>
 </resources>
