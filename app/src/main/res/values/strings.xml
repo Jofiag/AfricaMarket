@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">AfricaMarket</string>
+    <string name="email_text">Email</string>
+    <string name="login_text">SE CONNECTER</string>
+    <string name="or_text">OR</string>
+    <string name="create_new_account_text">CREER UN NOUVEAU COMPTE</string>
+    <string name="password_text">Mot de passe</string>
+    <string name="password_forgotten_text">Mot de passe oublié?</string>
+    <string name="Not_member_text">Pas encore membre?</string>
 </resources>

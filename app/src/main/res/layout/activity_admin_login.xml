@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+android:gravity="center"
+android:padding="40dp"
+tools:context=".activities.MainActivity">
+
+<EditText
+    android:id="@+id/admin_email"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:hint="@string/email_text"
+    android:inputType="textEmailAddress"
+    android:layout_marginBottom="10dp"/>
+
+<EditText
+    android:id="@+id/admin_password"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:hint="@string/password_text"
+    android:inputType="textPassword"
+    android:layout_marginBottom="20dp"/>
+
+<Button
+    android:id="@+id/login_button"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:text="@string/login_text" />
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <Button
+        android:id="@+id/forgotten_password_button"
+        android:layout_width="wrap_content"
+        android:layout_height="12dp"
+        android:background="@android:color/transparent"
+        android:text="@string/password_forgotten_text"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SmallSp" />
+
+    <Button
+        android:id="@+id/create_account_button"
+        android:layout_width="wrap_content"
+        android:layout_height="12dp"
+        android:background="@android:color/transparent"
+        android:text="@string/Not_member_text"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SmallSp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</LinearLayout>
