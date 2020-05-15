@@ -10,14 +10,19 @@ import android.widget.Button;
 import com.example.africamarket.R;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+    private Button adminButton;
+    private Button clientButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button adminButton = findViewById(R.id.admin_button);
-        Button clientButton = findViewById(R.id.client_button);
+        adminButton = findViewById(R.id.admin_button);
+        clientButton = findViewById(R.id.client_button);
+
+        adminButton.setOnClickListener(this);
+        clientButton.setOnClickListener(this);
 
     }
 
