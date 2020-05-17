@@ -104,7 +104,6 @@ public class AdminLoginActivity extends AppCompatActivity implements View.OnClic
                     .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                         @Override
                         public void onSuccess(AuthResult authResult) {
-                            Toast.makeText(AdminLoginActivity.this, "Connected", Toast.LENGTH_SHORT).show();
 
                             FirebaseUser adminConnected = firebaseAuth.getCurrentUser();
 
@@ -124,20 +123,24 @@ public class AdminLoginActivity extends AppCompatActivity implements View.OnClic
                                                 for (QueryDocumentSnapshot snapshot : queryDocumentSnapshots){
                                                     Admin admin = new Admin();
                                                     admin.setId(snapshot.getId());
-                                                    admin.setName(snapshot.getString("adminName"));
+                                                    admin.setName(snapshot.getString("name"));
                                                     admin.setEmail(snapshot.getString("email"));
                                                     admin.setPassword(snapshot.getString("password"));
                                                     admin.setDirector(snapshot.getBoolean("director"));
 
+                                                    Log.d("GET", "onEvent: " + admin);
+
                                                     //Save the connected admin
                                                     AdminApi adminApi = AdminApi.getInstance();
                                                     adminApi.setAdmin(admin);
+
+                                                    Toast.makeText(AdminLoginActivity.this, admin.getName() + " Connected", Toast.LENGTH_SHORT).show();
                                                 }
                                             }
                                         }
                                     });
 
-                            if (adminConnected.getUid().equals("7vrwG7bmdFO6F4hRPyFTR5AzL7c2"))
+                            if (adminConnected.getUid().equals(adminDirector.getId()))
                                 startChooseAddingActivity();
                             else
                                 startAddNewProductActivity();

@@ -10,4 +10,7 @@
     <string name="start_like_text">COMMENCER EN TANT QUE :</string>
     <string name="admin_text">ADMINISTRATEUR</string>
     <string name="cleint_text">CLEINT</string>
+    <string name="hello_text">EN TANT QUE CHEF DES ADMINISTRATEURS VOUS POUVEZ :</string>
+    <string name="add_product_text">Ajouter un produit</string>
+    <string name="add_admin_text">Ajouter un administrateur</string>
 </resources>

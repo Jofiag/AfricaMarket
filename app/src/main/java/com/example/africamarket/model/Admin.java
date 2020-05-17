@@ -55,4 +55,15 @@ public class Admin {
     public void setDirector(Boolean director) {
         isDirector = director;
     }
+
+    @Override
+    public String toString() {
+        return "Admin{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", isDirector=" + isDirector +
+                '}';
+    }
 }
