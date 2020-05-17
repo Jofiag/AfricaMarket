@@ -3,6 +3,7 @@ package com.example.africamarket.activities;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -55,6 +56,8 @@ public class AdminLoginActivity extends AppCompatActivity implements View.OnClic
 
 
         adminDirector = new Admin("Med", "jocelynaguemon@gmail.com", "Jofiag22");
+        adminDirector.setId("7vrwG7bmdFO6F4hRPyFTR5AzL7c2");
+        adminDirector.setDirector(true);
         addAnAdminToTheCollection(adminDirector);
 
     }
@@ -96,19 +99,36 @@ public class AdminLoginActivity extends AppCompatActivity implements View.OnClic
                         @Override
                         public void onSuccess(AuthResult authResult) {
                             Toast.makeText(AdminLoginActivity.this, "Connected", Toast.LENGTH_SHORT).show();
+
+                            FirebaseUser userConnected = firebaseAuth.getCurrentUser();
+
+                            if (userConnected != null && userConnected.getUid().equals("7vrwG7bmdFO6F4hRPyFTR5AzL7c2"))
+                                startChooseAddingActivity();
+                            else
+                                startAddNewProductActivity();
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
                             Log.d("ConnectionD", "onFailure: " + e.getMessage());
-                            Toast.makeText(AdminLoginActivity.this, "Connection failed", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(AdminLoginActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     });
         }
         else {
             Toast.makeText(AdminLoginActivity.this, "Both field are required!", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private void startChooseAddingActivity(){
+        Intent intent = new Intent(AdminLoginActivity.this, ChooseAddingActivity.class);
+        startActivity(intent);
+    }
+
+    private void startAddNewProductActivity(){
+        Intent intent = new Intent(AdminLoginActivity.this, AddNewProductActivity.class);
+        startActivity(intent);
     }
 
     private void addAnAdminToTheCollection(Admin newAdmin){
