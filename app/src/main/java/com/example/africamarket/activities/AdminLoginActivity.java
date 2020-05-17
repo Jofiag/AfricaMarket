@@ -1,6 +1,7 @@
 package com.example.africamarket.activities;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -13,6 +14,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.africamarket.R;
+import com.example.africamarket.data.AdminApi;
 import com.example.africamarket.model.Admin;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -23,7 +25,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 public class AdminLoginActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -100,9 +106,38 @@ public class AdminLoginActivity extends AppCompatActivity implements View.OnClic
                         public void onSuccess(AuthResult authResult) {
                             Toast.makeText(AdminLoginActivity.this, "Connected", Toast.LENGTH_SHORT).show();
 
-                            FirebaseUser userConnected = firebaseAuth.getCurrentUser();
+                            FirebaseUser adminConnected = firebaseAuth.getCurrentUser();
 
-                            if (userConnected != null && userConnected.getUid().equals("7vrwG7bmdFO6F4hRPyFTR5AzL7c2"))
+                            //Retrieving adminConnect data from firebase
+                            collectionReference
+                                    .whereEqualTo("id", adminConnected.getUid())
+                                    .addSnapshotListener(new EventListener<QuerySnapshot>() {
+                                        @Override
+                                        public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots,
+                                                            @Nullable FirebaseFirestoreException e) {
+                                            if (e != null){
+                                                Log.d("GetAdminConnected", "onEvent: " + e.getMessage());
+                                            }
+
+
+                                            if (queryDocumentSnapshots != null && !queryDocumentSnapshots.isEmpty()){
+                                                for (QueryDocumentSnapshot snapshot : queryDocumentSnapshots){
+                                                    Admin admin = new Admin();
+                                                    admin.setId(snapshot.getId());
+                                                    admin.setName(snapshot.getString("adminName"));
+                                                    admin.setEmail(snapshot.getString("email"));
+                                                    admin.setPassword(snapshot.getString("password"));
+                                                    admin.setDirector(snapshot.getBoolean("director"));
+
+                                                    //Save the connected admin
+                                                    AdminApi adminApi = AdminApi.getInstance();
+                                                    adminApi.setAdmin(admin);
+                                                }
+                                            }
+                                        }
+                                    });
+
+                            if (adminConnected.getUid().equals("7vrwG7bmdFO6F4hRPyFTR5AzL7c2"))
                                 startChooseAddingActivity();
                             else
                                 startAddNewProductActivity();

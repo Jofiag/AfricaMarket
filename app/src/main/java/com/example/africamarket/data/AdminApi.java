@@ -6,11 +6,14 @@ public class AdminApi {
     private Admin admin;
     private static AdminApi instance;
 
-    public AdminApi getInstance(){
+    public static AdminApi getInstance(){
         if (instance == null)
             instance = new AdminApi();
 
         return instance;
+    }
+
+    public AdminApi() {
     }
 
     public Admin getAdmin() {

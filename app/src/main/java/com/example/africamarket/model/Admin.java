@@ -2,16 +2,16 @@ package com.example.africamarket.model;
 
 public class Admin {
     private String id;
-    private String adminName;
+    private String name;
     private String email;
     private String password;
-    private Boolean isDirector;
+    private Boolean isDirector = false;
 
     public Admin() {
     }
 
     public Admin(String username, String email, String password) {
-        this.adminName = username;
+        this.name = username;
         this.email = email;
         this.password = password;
     }
@@ -24,12 +24,12 @@ public class Admin {
         this.id = id;
     }
 
-    public String getAdminName() {
-        return adminName;
+    public String getName() {
+        return name;
     }
 
-    public void setAdminName(String adminName) {
-        this.adminName = adminName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getEmail() {
