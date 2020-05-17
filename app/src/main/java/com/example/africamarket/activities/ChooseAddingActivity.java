@@ -35,6 +35,8 @@ public class ChooseAddingActivity extends AppCompatActivity implements View.OnCl
             case R.id.add_admin_button:
                 startAddAdminActivity();
                 break;
+            default:
+                break;
         }
     }
 
