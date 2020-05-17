@@ -4,6 +4,7 @@ public class Admin {
     private String adminName;
     private String email;
     private String password;
+    private Boolean isDirector;
 
     public Admin() {
     }
@@ -36,5 +37,13 @@ public class Admin {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Boolean getDirector() {
+        return isDirector;
+    }
+
+    public void setDirector(Boolean director) {
+        isDirector = director;
     }
 }
