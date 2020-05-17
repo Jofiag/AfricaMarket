@@ -4,20 +4,23 @@ public class Product {
     private String type;
     private String name;
     private String price;
+    private String description;
     private String imageUrl;
 
     public Product() {
     }
 
-    public Product(String type, String name, String price) {
+    public Product(String type, String name, String description, String price) {
         this.type = type;
         this.name = name;
+        this.description = description;
         this.price = price;
     }
 
-    public Product(String type, String name, String price, String imageUrl) {
+    public Product(String type, String name, String description, String price, String imageUrl) {
         this.type = type;
         this.name = name;
+        this.description = description;
         this.price = price;
         this.imageUrl = imageUrl;
     }
@@ -36,6 +39,14 @@ public class Product {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getPrice() {
