@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AdminCodeListApi {
-    private String validAdminCode;
+    private List<String> codeList = new ArrayList<>();
     private static AdminCodeListApi instance;
 
     public AdminCodeListApi() {
@@ -17,11 +17,11 @@ public class AdminCodeListApi {
         return instance;
     }
 
-    public String getValidAdminCode() {
-        return validAdminCode;
+    public List<String> getCodeList() {
+        return codeList;
     }
 
-    public void setValidAdminCode(String validAdminCode) {
-        this.validAdminCode = validAdminCode;
+    public void setCodeList(List<String> codeList) {
+        this.codeList = codeList;
     }
 }

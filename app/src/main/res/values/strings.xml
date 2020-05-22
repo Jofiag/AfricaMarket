@@ -13,4 +13,8 @@
     <string name="hello_text">EN TANT QUE CHEF DES ADMINISTRATEURS VOUS POUVEZ :</string>
     <string name="add_product_text">Ajouter un produit</string>
     <string name="add_admin_text">Ajouter un administrateur</string>
+    <string name="hint_addAdmin_text">Entrer l\'email du nouveau admin</string>
+    <string name="send_code_text">Envoyer le code de creation</string>
+    <string name="subject">Code pour la création de votre compte administrateur</string>
+    <string name="message">Veuillez utiliser le code suivant pour créer votre compte administrateur :</string>
 </resources>
