@@ -17,4 +17,6 @@
     <string name="send_code_text">Envoyer le code de creation</string>
     <string name="subject">Code pour la création de votre compte administrateur</string>
     <string name="message">Veuillez utiliser le code suivant pour créer votre compte administrateur :</string>
+    <string name="username_text">Nom d\'utilisateur</string>
+    <string name="code_sent_text">Code de création reçu par mail</string>
 </resources>
