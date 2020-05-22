@@ -90,6 +90,7 @@ public class AdminLoginActivity extends AppCompatActivity implements View.OnClic
             case R.id.forgotten_password_button:
                 break;
             case R.id.create_account_button:
+                startCreateNewAdminAccount();
                 break;
         }
 
@@ -166,6 +167,11 @@ public class AdminLoginActivity extends AppCompatActivity implements View.OnClic
 
     private void startAddNewProductActivity(){
         Intent intent = new Intent(AdminLoginActivity.this, AddNewProductActivity.class);
+        startActivity(intent);
+    }
+
+    private void startCreateNewAdminAccount(){
+        Intent intent = new Intent(AdminLoginActivity.this, CreateNewAdminAccount.class);
         startActivity(intent);
     }
 
