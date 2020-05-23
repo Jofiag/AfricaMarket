@@ -37,6 +37,7 @@ public class AddAdminActivity extends AppCompatActivity {
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private CollectionReference collectionReference = db.collection("Auth code");
+    private CollectionReference adminCreationReference = db.collection("Admins creation");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +53,10 @@ public class AddAdminActivity extends AppCompatActivity {
 
                     if (isValidEmail(emailEdit.getText())){
                         AdminCreation adminCreation = getNewAdminCreation();
+
+                        //Save adminCreation in the db
+                        adminCreationReference.add(adminCreation);
+
                         updateAdminCreationListApi(adminCreation);
 
                         String[] TO = {adminCreation.getEmail()};

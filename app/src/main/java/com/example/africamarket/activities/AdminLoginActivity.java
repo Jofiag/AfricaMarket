@@ -60,7 +60,6 @@ public class AdminLoginActivity extends AppCompatActivity implements View.OnClic
 
         firebaseAuth = FirebaseAuth.getInstance();
 
-
         adminDirector = new Admin("Med", "jocelynaguemon@gmail.com", "Jofiag22");
         adminDirector.setId("7vrwG7bmdFO6F4hRPyFTR5AzL7c2");
         adminDirector.setDirector(true);
